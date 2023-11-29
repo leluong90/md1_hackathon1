@@ -214,6 +214,36 @@ public class Exam2 {
                     }
                     break;
                 case 8:
+                    int[][] myNewArr=new int[row][col+1];
+                    int[] addArr=new int[row];
+                    int indexAdd=100;
+                    System.out.println("hãy nhập so cần chèn");
+                    for (int i = 0; i < row; i++) {
+                        System.out.printf("nhập add %d :" , i);
+                        addArr[i]=scanner.nextInt();
+                    }
+                    while (indexAdd>col+1){
+                        System.out.println("nhập vị trí cần add");
+                        indexAdd= scanner.nextInt();
+                    }
+                    for (int i = 0; i < row; i++) {
+                        for (int j = 0; j < col+1; j++) {
+                            if(j<indexAdd){
+                                myNewArr[i][j]=array[i][j];
+                            } else if (j==indexAdd) {
+                                myNewArr[i][j]=addArr[i];
+                            }else {
+                                myNewArr[i][j]=array[i][j-1];
+                            }
+                        }
+                    }
+                    System.out.println("mảng sau khi add ");
+                    for (int i=0;i<row;i++){
+                        for (int j=0;j<col+1;j++){
+                            System.out.print(myNewArr[i][j]+" ");
+                        }
+                        System.out.println();
+                    }
                     break;
                 case 9:
                     System.out.println("thoát");
